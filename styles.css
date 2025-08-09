@@ -1,3 +1,81 @@
+/* Fondo */
 body {
-    background-color: black;
+  margin: 0;
+  background-color: #1d4566;
+  font-family: Arial, sans-serif;
 }
+
+/* Contenedor con la transición */
+.transition-container {
+  width: 100vw;
+  min-height: 100vh; /* Se expande si hay más contenido */
+  overflow: hidden;
+}
+
+/* Animación de entrada */
+@keyframes circle-in-top-left {
+  from {
+    clip-path: circle(0% at top left);
+  }
+  to {
+    clip-path: circle(150% at top left);
+  }
+}
+
+[transition-style="in:circle:top-left"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
+}
+
+/* Animación de salida */
+@keyframes circle-out-hesitate {
+  0% {
+    clip-path: circle(125%);
+  }
+  40% {
+    clip-path: circle(40%);
+  }
+  100% {
+    clip-path: circle(0%);
+  }
+}
+
+[transition-style="out:circle:hesitate"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-out-hesitate both;
+}
+
+/* Sección presentación centrada */
+.presentacion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;       /* Centra verticalmente */
+  justify-content: center;   /* Centra horizontalmente */
+  gap: 3rem;
+  min-height: 100vh;         /* Ocupa toda la altura de pantalla */
+  background-color: #14235a;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+/* Imagen */
+.foto-perfil {
+  max-width: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.1);
+}
+
+/* Texto */
+.texto-presentacion {
+  color: antiquewhite;
+  font-size: 1.3em;
+  max-width: 500px;
+  text-align: justify;
+}
+
+
+
+
