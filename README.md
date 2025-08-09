@@ -10,4 +10,5 @@ Explorar y poner en práctica el uso de Tkinter para:
 - Crear ventanas interactivas.
 - Utilizar widgets como **botones**, **etiquetas**, **entradas de texto**, **menús**, entre otros.
 - Comprender cómo estos elementos permiten diseñar aplicaciones más visuales y funcionales.
+
 ---
