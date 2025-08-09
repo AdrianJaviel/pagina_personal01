@@ -1,101 +1,134 @@
-        body {
-            margin: 0;
-            background-color: #0e2b42; /* Fondo azul oscuro */
-            font-family: Arial, sans-serif;
-        }
+body {
+    margin: 0;
+    background-color: #0e2b42; /* Fondo azul oscuro */
+    font-family: Arial, sans-serif;
+}
 
-        /* Contenedor con la transición */
-        .transition-container {
-            width: 100vw;
-            min-height: 100vh;
-            overflow: hidden;
-        }
+/* Contenedor con la transición */
+.transition-container {
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
 
-        /* ==================== Animaciones de Transición ==================== */
-        @keyframes circle-in-top-left {
-            from {
-                clip-path: circle(0% at top left);
-            }
-            to {
-                clip-path: circle(150% at top left);
-            }
-        }
+/* ==================== Animaciones de Transición ==================== */
+@keyframes circle-in-top-left {
+    from {
+        clip-path: circle(0% at top left);
+    }
+    to {
+        clip-path: circle(150% at top left);
+    }
+}
 
-        [transition-style="in:circle:top-left"] {
-            animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
-        }
+[transition-style="in:circle:top-left"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-top-left both;
+}
 
-        @keyframes circle-out-hesitate {
-            0% {
-                clip-path: circle(125%);
-            }
-            40% {
-                clip-path: circle(40%);
-            }
-            100% {
-                clip-path: circle(0%);
-            }
-        }
+@keyframes circle-out-hesitate {
+    0% {
+        clip-path: circle(125%);
+    }
+    40% {
+        clip-path: circle(40%);
+    }
+    100% {
+        clip-path: circle(0%);
+    }
+    }
+    
+[transition-style="out:circle:hesitate"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-out-hesitate both;
+}
 
-        [transition-style="out:circle:hesitate"] {
-            animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-out-hesitate both;
-        }
+/* ==================== Sección de Presentación (Centrada) ==================== */
+.presentacion {
+    display: flex;
+    flex-direction: row; /* Por defecto, en fila para pantallas grandes */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 5.5rem;
+    min-height: 100vh;
+    background-color: #173c61; /* Color de fondo de la sección */
+    padding: 3rem;
+    box-sizing: border-box;
+}
 
-        /* ==================== Sección de Presentación (Centrada) ==================== */
-        .presentacion {
-            display: flex;
-            flex-direction: row; /* Por defecto, en fila para pantallas grandes */
-            align-items: center; /* Centra verticalmente */
-            justify-content: center; /* Centra horizontalmente */
-            gap: 3rem;
-            min-height: 100vh;
-            background-color: #173c61; /* Color de fondo de la sección */
-            padding: 3rem;
-            box-sizing: border-box;
-        }
+/* Estilo de la imagen de perfil */
+.foto-perfil {
+    max-width: 300px; /* Tamaño máximo para desktop */
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-        /* Estilo de la imagen de perfil */
-        .foto-perfil {
-            max-width: 300px; /* Tamaño máximo para desktop */
-            border-radius: 50%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+.foto-perfil:hover {
+    transform: scale(1.1);
+}
 
-        .foto-perfil:hover {
-            transform: scale(1.1);
-        }
+/* Estilo del texto de presentación */
+.texto-presentacion {
+    color: #FFFFFF; /* Texto blanco */
+    font-size: 1.3em;
+    max-width: 500px;
+}
 
-        /* Estilo del texto de presentación */
-        .texto-presentacion {
-            color: #FFFFFF; /* Texto blanco */
-            font-size: 1.3em;
-            max-width: 500px;
-        }
+/* Estilo para el h1 */
+.animar-h1 {
+  font-size: 2.5em;
+  margin: 0;
+  /* Animate.css requiere las dos clases para funcionar */
+  animation-name: fadeInUp;
+  animation-duration: 1.5s;
+  animation-fill-mode: both; /* Asegura que el elemento se mantenga visible al final */
+}
 
-        /* ==================== Media Query para Responsividad ==================== */
-        /* Este bloque de estilos se aplica solo en pantallas de 768px o menos (móviles) */
-        @media (max-width: 768px) {
-            .presentacion {
-                /* Cambia la dirección del flexbox para apilar los elementos */
-                flex-direction: column;
-                /* Reduce el espacio entre la imagen y el texto */
-                gap: 1.5rem;
-                /* Ajusta el padding para que no sea tan grande en pantallas pequeñas */
-                padding: 2rem 1rem;
-                text-align: center; /* Centra el texto */
-            }
-            
-            .foto-perfil {
-                /* Reduce el tamaño máximo de la imagen en móviles */
-                max-width: 200px;
-            }
+/* Animate.css por defecto no tiene estas animaciones, así que las creamos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 
-            .texto-presentacion {
-                /* Asegura que el texto no se salga de la pantalla */
-                max-width: 100%;
-            }
-        }
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* ==================== Media Query para Responsividad ==================== */
+@media (max-width: 768px) {
+    .presentacion {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+    
+    .foto-perfil {
+        max-width: 200px;
+    }
+
+    .texto-presentacion {
+        max-width: 100%;
+    }
+
+    .animar-h1 {
+        font-size: 1.8em;
+    }
+}
+
+
 
 
 
