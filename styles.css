@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    background-color: #ffffff; /* Fondo azul oscuro */
-      font-family: "Passion One", sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    font-family: "Passion One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -37,7 +37,7 @@ body {
     100% {
         clip-path: circle(0%);
     }
-    }
+}
     
 [transition-style="out:circle:hesitate"] {
     animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-out-hesitate both;
@@ -77,12 +77,11 @@ body {
 
 /* Estilo para el h1 */
 .animar-h1 {
-  font-size: 2.5em;
-  margin: 0;
-  /* Animate.css requiere las dos clases para funcionar */
-  animation-name: fadeInUp;
-  animation-duration: 1.5s;
-  animation-fill-mode: both; /* Asegura que el elemento se mantenga visible al final */
+    font-size: 2.5em;
+    margin: 0;
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+    animation-fill-mode: both; /* Asegura que el elemento se mantenga visible al final */
 }
 
 /* Animate.css por defecto no tiene estas animaciones, así que las creamos */
@@ -108,6 +107,37 @@ body {
     }
 }
 
+/* ==================== Sección de Habilidades (CORREGIDO) ==================== */
+.habilidades {
+    width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+    gap: 2.5rem; /* Espacio entre los elementos */
+    display: flex; /* Usamos flexbox para centrar el contenido */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    background-color: #262b37; /* Fondo azul más claro */
+    color: #f1f1f0; /* Texto blanco */
+    padding: 3rem; /* Padding para evitar que el contenido se pegue a los bordes */
+    text-align: center; /* Añadido para evitar que el contenido se pegue al borde derecho */
+    box-sizing: border-box; /* Asegura que el padding no añada más ancho */
+}
+
+
+
+@keyframes square-in-top-left {
+    from {
+        clip-path: inset(100% 0 0 100%);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Esta es la clase que el JavaScript añadirá */
+.in-square-top-left {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-top-left both;
+}
+
 /* ==================== Media Query para Responsividad ==================== */
 @media (max-width: 768px) {
     .presentacion {
@@ -130,33 +160,32 @@ body {
     }
 }
 
-.habilidades {
-    
-    background-color: #262b37; /* Fondo azul más claro */
-    color: #f1f1f0; /* Texto blanco */
-    padding: 10rem;
-    text-align: center;
-    
-}
-
-.text_diferent {
-    color:  #d3b486; ;
-}
-
-@keyframes square-in-top-left {
+/*
+  Clases base para todas las animaciones de Animate.css
+*/
+/*
+  Define la animación de Animate.css en tus propios keyframes
+*/
+@keyframes fadeInRightBig {
   from {
-    clip-path: inset(100% 0 0 100%);
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
   }
   to {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
-/* Esta es la clase que el JavaScript añadirá */
-.in-square-top-left {
-  animation: 2.5s cubic-bezier(.25, 1, .30, 1) square-in-top-left both;
+/*
+  Aplica la animación a la clase del h2
+*/
+.text_diferent {
+  /* Estilos que ya tenías */
+  color: #bfa989; 
+
+  /* Propiedades de la animación */
+  animation-name: fadeInRightBig;
+  animation-duration: 1s; /* La duración que tiene por defecto Animate.css */
+  animation-fill-mode: both; /* Asegura que el estado final se mantenga */
 }
-
-
-
-
