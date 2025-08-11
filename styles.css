@@ -198,7 +198,7 @@ display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
     align-items: center; /* Centra horizontalmente */
-    background-color: #262b37; /* Fondo azul más claro */
+    background-color: #3d4456; /* Fondo azul más claro */
     color: #f1f1f0; /* Texto blanco */
     padding: 3rem; /* Padding para evitar que el contenido se pegue a los bordes */
     text-align: center; /* Añadido para evitar que el contenido se pegue al borde derecho */
@@ -265,10 +265,271 @@ display: flex;
 */
 .text_diferent {
   /* Estilos que ya tenías */
-  color: #bfa989; 
-
+  color: #e0ddd8;
   /* Propiedades de la animación */
   animation-name: fadeInRightBig;
   animation-duration: 1s; /* La duración que tiene por defecto Animate.css */
   animation-fill-mode: both; /* Asegura que el estado final se mantenga */
+}
+
+/* From Uiverse.io by Juanes200122 */ 
+.container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background: #282828;
+  margin: 0 15px;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.container .skill-box {
+  width: 100%;
+  margin: 25px 0;
+}
+
+.skill-box .title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(226, 226, 226);
+}
+
+.skill-box .skill-bar {
+  height: 8px;
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+  background: rgba(236, 236, 236, 0.1);
+}
+
+.skill-bar .skill-per {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+  background: rgb(226, 226, 226);
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.skill-per.html { width: 70%; animation-delay: 0.1s; }
+.skill-per.css { width: 50%; animation-delay: 0.15s; }
+.skill-per.python { width: 60%; animation-delay: 0.2s; }
+.skill-per.javascript { width: 20%; animation-delay: 0.25s; }
+.skill-per.csharp { width: 30%; animation-delay: 0.3s; }
+.skill-per.cpp { width: 40%; animation-delay: 0.35s; }
+
+@keyframes progress {
+  0% { width: 0; opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.skill-per .tooltip {
+  position: absolute;
+  right: -14px;
+  top: -28px;
+  font-size: 9px;
+  font-weight: bold;
+  color: black;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgb(226, 226, 226);
+  z-index: 1;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+  background-color: rgb(226, 226, 226);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Sección de Habilidades */
+.habilidades {
+    width: 100%;
+    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d4456;
+    color: #f1f1f0;
+    padding: 3rem 1rem; /* Reducir el padding horizontal general */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.habilidades-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem; /* Reducir el padding horizontal del grid */
+    box-sizing: border-box;
+}
+
+.habilidad-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.33% - 2rem); /* Aproximadamente un tercio del ancho con margen */
+    min-width: 300px; /* Ancho mínimo para evitar que se encojan demasiado */
+    padding: 2rem;
+    background-color: #151a24;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    color: #f1f1f0;
+    box-sizing: border-box; /* Asegurar que padding y border no aumenten el ancho */
+}
+
+.habilidad-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.habilidad-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    /* Usamos flexbox para centrar la imagen dentro del div, si es necesario */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.habilidad-logo .logo-img {
+    width: 100%; /* La imagen ocupará todo el ancho del div padre */
+    height: 100%; /* Y todo el alto, respetando el tamaño de 60x60px */
+    object-fit: contain; /* Esto asegura que la imagen se ajuste sin distorsionarse */
+    transition: transform 0.3s ease; /* Puedes añadir una transición si lo deseas */
+}
+
+/* Nota: Los estilos de hover y colores que antes afectaban a los SVG
+   ahora deberán ser eliminados o adaptados, ya que las imágenes
+   rasterizadas (PNG, JPG) no pueden cambiar de color con CSS.
+   Por ejemplo, este bloque ya no será necesario si el color del logo está en la imagen:
+
+   .habilidad-card.laravel .habilidad-logo svg {
+       color: #ff2d20;
+   }
+*/
+
+/* En su lugar, si quieres un efecto al pasar el mouse, puedes hacer algo como esto: */
+.habilidad-card:hover .habilidad-logo .logo-img {
+    /* Por ejemplo, un pequeño escalado */
+    transform: scale(1.1);
+}
+
+.habilidad-titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.habilidad-descripcion {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #ccc;
+    flex-grow: 1;
+}
+
+.habilidad-link {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.habilidad-link svg {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.habilidad-card:hover .habilidad-link {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.habilidad-card:hover .habilidad-link svg {
+    transform: rotate(45deg);
+}
+
+/* Clases de colores específicos */
+.habilidad-card.laravel .habilidad-logo svg,
+.habilidad-card.laravel .habilidad-link:hover {
+    color: #ff2d20;
+}
+.habilidad-card.laravel .habilidad-link {
+    border-color: #ff2d20;
+}
+.habilidad-card.laravel .habilidad-link:hover {
+    background-color: #ff2d20;
+}
+
+
+.habilidad-card.react .habilidad-logo svg,
+.habilidad-card.react .habilidad-link:hover {
+    color: #61dafb;
+}
+.habilidad-card.react .habilidad-link {
+    border-color: #61dafb;
+}
+.habilidad-card.react .habilidad-link:hover {
+    background-color: #61dafb;
+}
+
+
+.habilidad-card.vue .habilidad-logo svg,
+.habilidad-card.vue .habilidad-link:hover {
+    color: #42b883;
+}
+.habilidad-card.vue .habilidad-link {
+    border-color: #42b883;
+}
+.habilidad-card.vue .habilidad-link:hover {
+    background-color: #42b883;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .habilidad-card {
+        width: calc(50% - 2rem); /* Dos tarjetas por fila en pantallas medianas */
+        min-width: auto; /* Permitir que se ajusten mejor */
+    }
+
+    /* Si solo hay una o dos tarjetas, centrarlas */
+    .habilidades-grid {
+        justify-content: flex-start; /* Alinea a la izquierda en pantallas pequeñas para evitar centrado extraño con pocas tarjetas */
+    }
+
+    /* Centrar las tarjetas individualmente en pantallas muy pequeñas */
+    @media (max-width: 480px) {
+        .habilidad-card {
+            width: 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
+        }
+    }
 }
