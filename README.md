@@ -24,7 +24,7 @@ No ha sido fácil, pero como siempre digo: *"Nada es imposible"*.
 
 ---
 
-📅 **Fecha de inicio:** _(indicar fecha si quieres)_  
+📅 **Fecha de inicio:** _(7/8/2024)_  
 📍 **Estado actual:** En desarrollo  
 🎯 **Meta:** Completar la página al 100% con todas las secciones y fotos  
 📝 **Licencia:** Uso personal, no redistribuir sin permiso
