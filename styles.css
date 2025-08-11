@@ -351,6 +351,7 @@ display: flex;
 }
 
 /* Sección de Habilidades */
+/* Sección de Habilidades */
 .habilidades {
     width: 100%;
     gap: 2.5rem;
@@ -360,27 +361,45 @@ display: flex;
     align-items: center;
     background-color: #3d4456;
     color: #f1f1f0;
-    padding: 3rem 1rem; /* Reducir el padding horizontal general */
+    padding: 3rem 1rem;
     text-align: center;
     box-sizing: border-box;
+}
+
+.text_diferent {
+    color: #e0ddd8;
+    animation-name: fadeInRightBig;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInRightBig {
+    from {
+        opacity: 0;
+        transform: translate3d(2000px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .habilidades-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centra los elementos horizontalmente */
+    justify-content: center;
     gap: 2rem;
     width: 100%;
     max-width: 1200px;
-    padding: 0 1rem; /* Reducir el padding horizontal del grid */
+    padding: 0 1rem;
     box-sizing: border-box;
 }
 
 .habilidad-card {
     display: flex;
     flex-direction: column;
-    width: calc(33.33% - 2rem); /* Aproximadamente un tercio del ancho con margen */
-    min-width: 300px; /* Ancho mínimo para evitar que se encojan demasiado */
+    width: calc(33.33% - 2rem);
+    min-width: 300px;
     padding: 2rem;
     background-color: #151a24;
     border-radius: 1rem;
@@ -390,7 +409,7 @@ display: flex;
     position: relative;
     overflow: hidden;
     color: #f1f1f0;
-    box-sizing: border-box; /* Asegurar que padding y border no aumenten el ancho */
+    box-sizing: border-box;
 }
 
 .habilidad-card:hover {
@@ -402,33 +421,16 @@ display: flex;
     width: 60px;
     height: 60px;
     margin-bottom: 1rem;
-    /* Usamos flexbox para centrar la imagen dentro del div, si es necesario */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .habilidad-logo .logo-img {
-    width: 100%; /* La imagen ocupará todo el ancho del div padre */
-    height: 100%; /* Y todo el alto, respetando el tamaño de 60x60px */
-    object-fit: contain; /* Esto asegura que la imagen se ajuste sin distorsionarse */
-    transition: transform 0.3s ease; /* Puedes añadir una transición si lo deseas */
-}
-
-/* Nota: Los estilos de hover y colores que antes afectaban a los SVG
-   ahora deberán ser eliminados o adaptados, ya que las imágenes
-   rasterizadas (PNG, JPG) no pueden cambiar de color con CSS.
-   Por ejemplo, este bloque ya no será necesario si el color del logo está en la imagen:
-
-   .habilidad-card.laravel .habilidad-logo svg {
-       color: #ff2d20;
-   }
-*/
-
-/* En su lugar, si quieres un efecto al pasar el mouse, puedes hacer algo como esto: */
-.habilidad-card:hover .habilidad-logo .logo-img {
-    /* Por ejemplo, un pequeño escalado */
-    transform: scale(1.1);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
 .habilidad-titulo {
@@ -479,57 +481,74 @@ display: flex;
 }
 
 /* Clases de colores específicos */
-.habilidad-card.laravel .habilidad-logo svg,
-.habilidad-card.laravel .habilidad-link:hover {
-    color: #ff2d20;
-}
-.habilidad-card.laravel .habilidad-link {
-    border-color: #ff2d20;
-}
-.habilidad-card.laravel .habilidad-link:hover {
-    background-color: #ff2d20;
+.habilidad-card.python .habilidad-link {
+    border-color: #306998;
 }
 
-
-.habilidad-card.react .habilidad-logo svg,
-.habilidad-card.react .habilidad-link:hover {
-    color: #61dafb;
-}
-.habilidad-card.react .habilidad-link {
-    border-color: #61dafb;
-}
-.habilidad-card.react .habilidad-link:hover {
-    background-color: #61dafb;
+.habilidad-card.python .habilidad-link:hover {
+    color: #306998;
+    background-color: #306998;
 }
 
+.habilidad-card.html .habilidad-link {
+    border-color: #e34e26;
+}
 
-.habilidad-card.vue .habilidad-logo svg,
-.habilidad-card.vue .habilidad-link:hover {
-    color: #42b883;
+.habilidad-card.html .habilidad-link:hover {
+    color: #e34e26;
+    background-color: #e34e26;
 }
-.habilidad-card.vue .habilidad-link {
-    border-color: #42b883;
+
+.habilidad-card.css .habilidad-link {
+    border-color: #264de4;
 }
-.habilidad-card.vue .habilidad-link:hover {
-    background-color: #42b883;
+
+.habilidad-card.css .habilidad-link:hover {
+    color: #264de4;
+    background-color: #264de4;
+}
+
+.habilidad-card.javascript .habilidad-link {
+    border-color: #f7df1e;
+}
+
+.habilidad-card.javascript .habilidad-link:hover {
+    color: #f7df1e;
+    background-color: #f7df1e;
+}
+
+.habilidad-card.csharp .habilidad-link {
+    border-color: #9b4897;
+}
+
+.habilidad-card.csharp .habilidad-link:hover {
+    color: #9b4897;
+    background-color: #9b4897;
+}
+
+.habilidad-card.cpp .habilidad-link {
+    border-color: #004d80;
+}
+
+.habilidad-card.cpp .habilidad-link:hover {
+    color: #004d80;
+    background-color: #004d80;
 }
 
 /* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
     .habilidad-card {
-        width: calc(50% - 2rem); /* Dos tarjetas por fila en pantallas medianas */
-        min-width: auto; /* Permitir que se ajusten mejor */
+        width: calc(50% - 2rem);
+        min-width: auto;
     }
 
-    /* Si solo hay una o dos tarjetas, centrarlas */
     .habilidades-grid {
-        justify-content: flex-start; /* Alinea a la izquierda en pantallas pequeñas para evitar centrado extraño con pocas tarjetas */
+        justify-content: flex-start;
     }
+}
 
-    /* Centrar las tarjetas individualmente en pantallas muy pequeñas */
-    @media (max-width: 480px) {
-        .habilidad-card {
-            width: 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
-        }
+@media (max-width: 480px) {
+    .habilidad-card {
+        width: 100%;
     }
 }
