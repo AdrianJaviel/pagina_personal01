@@ -18,7 +18,7 @@ Próximamente agregaré:
 - Una sección de **"Contáctame"** 📬
 
 ## 💡 Herramientas y creatividad
-Para facilitar el trabajo, utilicé **plantillas de código** como base,  
+Para facilitar el trabajo, utilicé **plantillas de código y ChatGPT** como base,  
 pero me enfoqué en aplicar **mi creatividad** en cada sección.  
 No ha sido fácil, pero como siempre digo: *"Nada es imposible"*.
 
